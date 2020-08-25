@@ -18,7 +18,7 @@ class Psr4PathGenerator extends Psr4PathGeneratorBase implements PathGenerator
                 if (!is_dir($dir) && !mkdir($dir, 0777, true)) {
                     throw new PathGeneratorException("Can't create the folder '$dir'");
                 }
-                $f = trim(strtr(substr($ns, strlen($namespace)), "\\/", ".."), ".");
+                $f = trim(strtr($ns, "\\/", ".."), ".");
                 return $dir . "/" . $f . ".yml";
             }
         }
